@@ -2,81 +2,254 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0b0b10">
 <title>월별 Top 10</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <style>
-  :root { --bg: #f7f7f7; --fg: #111; --muted: #666; --card: #fff; --line: #e4e4e4; }
-  @media (prefers-color-scheme: dark) {
-    :root { --bg: #121212; --fg: #eee; --muted: #9a9a9a; --card: #1c1c1c; --line: #2a2a2a; }
+  :root {
+    --bg: #0b0b10;
+    --surface: rgba(255, 255, 255, 0.06);
+    --surface-strong: rgba(255, 255, 255, 0.11);
+    --line: rgba(255, 255, 255, 0.09);
+    --fg: #f5f5f7;
+    --muted: rgba(245, 245, 247, 0.62);
+    --faint: rgba(245, 245, 247, 0.36);
+    --accent: #1ed760;
+    --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
   }
-  body { margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, "Noto Sans KR", sans-serif; }
-  main { max-width: 560px; margin: 0 auto; padding: 24px 16px 48px; }
-  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
-  h1 { font-size: 20px; margin: 0; }
-  select { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--fg); }
-  ol { list-style: none; padding: 0; margin: 0; }
-  li { display: grid; grid-template-columns: 24px 56px 1fr auto; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-  .rank { font-weight: 700; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
-  .art { width: 56px; height: 56px; border-radius: 6px; object-fit: cover; background: var(--line); display: block; }
-  .info { min-width: 0; }
+  * { box-sizing: border-box; }
+  html { background: var(--bg); }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--fg);
+    font-family: "Pretendard Variable", Pretendard, system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; text-decoration: none; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  .backdrop {
+    position: fixed; inset: -15%; z-index: -2;
+    background: center / cover no-repeat;
+    filter: blur(90px) saturate(1.7);
+    opacity: 0.55;
+  }
+  .shade {
+    position: fixed; inset: 0; z-index: -1;
+    background: radial-gradient(130% 70% at 50% 0%, rgba(11, 11, 16, 0.2) 0%, rgba(11, 11, 16, 0.75) 50%, var(--bg) 85%);
+  }
+
+  main { max-width: 640px; margin: 0 auto; padding: max(32px, env(safe-area-inset-top)) 20px 64px; }
+
+  .eyebrow { margin: 0; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
+  .head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin: 10px 0 20px; }
+  h1 { margin: 0; font-size: clamp(40px, 11vw, 60px); font-weight: 800; letter-spacing: -0.04em; line-height: 0.95; }
+  h1 small { display: block; margin-bottom: 10px; font-size: 15px; font-weight: 600; letter-spacing: 0; color: var(--muted); }
+
+  .nav { display: flex; gap: 8px; }
+  .nav button {
+    width: 42px; height: 42px; border-radius: 50%;
+    display: grid; place-items: center; cursor: pointer;
+    color: var(--fg); background: var(--surface); border: 1px solid var(--line);
+    backdrop-filter: blur(12px);
+    transition: background 0.2s, transform 0.2s var(--ease), opacity 0.2s;
+  }
+  .nav button:hover:not(:disabled) { background: var(--surface-strong); }
+  .nav button:active:not(:disabled) { transform: scale(0.92); }
+  .nav button:disabled { opacity: 0.3; cursor: default; }
+
+  .chips {
+    display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none;
+    margin: 0 -20px 24px; padding: 2px 20px;
+  }
+  .chips::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: none; padding: 8px 15px; border-radius: 999px; cursor: pointer;
+    font: inherit; font-size: 14px; font-weight: 600; font-variant-numeric: tabular-nums;
+    color: var(--muted); background: var(--surface); border: 1px solid var(--line);
+    transition: background 0.2s, color 0.2s;
+  }
+  .chip:hover { color: var(--fg); }
+  .chip[aria-pressed="true"] { color: #0b0b10; background: var(--fg); border-color: transparent; }
+
+  .hero {
+    display: grid; grid-template-columns: 152px minmax(0, 1fr); gap: 20px; align-items: end;
+    margin-bottom: 20px; padding: 18px; border-radius: 26px;
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.03));
+    border: 1px solid var(--line);
+    backdrop-filter: blur(24px);
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s var(--ease);
+  }
+  a.hero:hover { transform: translateY(-3px); }
+  .hero-art { width: 152px; border-radius: 16px; box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.7); }
+  .badge {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px;
+    font-size: 12px; font-weight: 800; color: #0b0b10; background: var(--accent);
+  }
+  .hero h2 {
+    margin: 12px 0 6px; font-size: clamp(21px, 5.4vw, 28px); font-weight: 800; letter-spacing: -0.025em; line-height: 1.2;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .hero .count { margin: 14px 0 0; font-size: 14px; color: var(--muted); }
+  .hero .count strong { font-size: 22px; font-weight: 800; color: var(--fg); font-variant-numeric: tabular-nums; margin-right: 2px; }
+  .hero.message { display: block; text-align: center; padding: 40px 20px; color: var(--muted); }
+
+  .list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  .row {
+    display: grid; grid-template-columns: 30px 52px minmax(0, 1fr) auto; align-items: center; gap: 14px;
+    padding: 10px 12px; border-radius: 16px;
+    transition: background 0.2s;
+  }
+  .row:hover { background: var(--surface); }
+  .rank { font-size: 18px; font-weight: 800; text-align: center; color: var(--faint); font-variant-numeric: tabular-nums; }
+  .row-art { width: 52px; border-radius: 10px; }
   .title, .sub { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-  .title { font-weight: 600; color: inherit; text-decoration: none; display: block; }
-  .title:hover { text-decoration: underline; }
-  .sub, .plays, .note { color: var(--muted); font-size: 13px; }
-  .plays { font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .note { margin-top: 16px; }
+  .title { font-size: 15px; font-weight: 650; }
+  .sub { margin: 2px 0 0; font-size: 13px; color: var(--muted); }
+  .bar { height: 3px; margin-top: 9px; border-radius: 3px; background: var(--line); overflow: hidden; }
+  .bar i {
+    display: block; height: 100%; width: var(--w); border-radius: inherit; transform-origin: left;
+    background: linear-gradient(90deg, var(--accent), #8ff5b5);
+    animation: grow 0.9s var(--ease) both; animation-delay: calc(var(--i) * 45ms + 120ms);
+  }
+  .plays { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; }
+  .plays small { margin-left: 2px; font-size: 12px; font-weight: 500; color: var(--muted); }
+
+  .art { display: block; aspect-ratio: 1; object-fit: cover; background: linear-gradient(135deg, #2b2b37, #15151c); }
+  .art.empty { display: grid; place-items: center; color: var(--faint); font-size: 20px; }
+
+  .hero, .row { animation: rise 0.55s var(--ease) both; animation-delay: calc(var(--i) * 45ms); }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+  @keyframes grow { from { transform: scaleX(0); } }
+
+  footer { margin-top: 32px; font-size: 12px; text-align: center; color: var(--faint); }
+
+  @media (max-width: 440px) {
+    .hero { grid-template-columns: 116px minmax(0, 1fr); gap: 16px; padding: 14px; border-radius: 22px; }
+    .hero-art { width: 116px; }
+    .row { gap: 12px; padding: 9px 8px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
 </style>
 </head>
 <body>
+<div class="backdrop" id="backdrop"></div>
+<div class="shade"></div>
 <main>
-  <header>
-    <h1>월별 Top 10</h1>
-    <select id="month" aria-label="월 선택" hidden></select>
-  </header>
-  <ol id="list"></ol>
-  <p class="note" id="note"></p>
+  <p class="eyebrow">Monthly Top 10</p>
+  <div class="head">
+    <h1><small id="year"></small><span id="month">Top 10</span></h1>
+    <div class="nav">
+      <button id="older" aria-label="이전 달" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <button id="newer" aria-label="다음 달" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="chips" id="chips" aria-label="월 선택"></nav>
+  <div id="hero"></div>
+  <ol class="list" id="list"></ol>
+  <footer id="footer"></footer>
 </main>
 <script>
 const $ = (id) => document.getElementById(id);
-const el = (tag, props = {}) => Object.assign(document.createElement(tag), props);
-const monthLabel = (m) => `${m.slice(0, 4)}년 ${Number(m.slice(5))}월`;
-const kst = (ts) => new Date(ts).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
+const el = (tag, props = {}, ...children) => {
+  const node = Object.assign(document.createElement(tag), props);
+  node.append(...children);
+  return node;
+};
+const trackUrl = (t) => `https://open.spotify.com/track/${t.id}`;
+const subline = (t) => [t.artists, t.album].filter(Boolean).join(" · ");
+const art = (t, cls) => t.image
+  ? el("img", { className: `art ${cls}`, src: t.image, alt: "", loading: "lazy" })
+  : el("div", { className: `art empty ${cls}`, textContent: "♪" });
+const stagger = (node, i) => { node.style.setProperty("--i", i); return node; };
 
-function render(month) {
-  $("list").replaceChildren(...month.tracks.map((t, i) => {
-    const info = el("div", { className: "info" });
-    info.append(
-      el("a", { className: "title", textContent: t.name || t.id, href: `https://open.spotify.com/track/${t.id}`, target: "_blank", rel: "noopener" }),
-      el("div", { className: "sub", textContent: [t.artists, t.album].filter(Boolean).join(" · ") }),
+let months = [];
+let current = 0;
+
+function message(text) {
+  $("hero").replaceChildren(el("div", { className: "hero message", textContent: text }));
+}
+
+function show(index) {
+  current = index;
+  const { month, tracks } = months[index];
+  const [year, mon] = [month.slice(0, 4), Number(month.slice(5))];
+  $("year").textContent = `${year}년`;
+  $("month").textContent = `${mon}월`;
+  document.title = `${year}년 ${mon}월 Top 10`;
+  $("older").disabled = index >= months.length - 1;
+  $("newer").disabled = index === 0;
+  for (const chip of $("chips").children) {
+    const active = chip.dataset.month === month;
+    chip.setAttribute("aria-pressed", active);
+    if (active) chip.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+  }
+  history.replaceState(null, "", `#${month}`);
+
+  const [top, ...rest] = tracks;
+  $("backdrop").style.backgroundImage = top.image ? `url("${top.image}")` : "none";
+  $("hero").replaceChildren(stagger(el("a", { className: "hero", href: trackUrl(top), target: "_blank", rel: "noopener" },
+    art(top, "hero-art"),
+    el("div", {},
+      el("span", { className: "badge", textContent: "#1" }),
+      el("h2", { textContent: top.name || top.id }),
+      el("p", { className: "sub", textContent: subline(top) }),
+      el("p", { className: "count" }, el("strong", { textContent: top.plays }), "회 재생"),
+    ),
+  ), 0));
+
+  $("list").replaceChildren(...rest.map((t, k) => {
+    const bar = el("i");
+    bar.style.setProperty("--w", `${(t.plays / top.plays) * 100}%`);
+    const row = el("a", { className: "row", href: trackUrl(t), target: "_blank", rel: "noopener" },
+      el("span", { className: "rank", textContent: k + 2 }),
+      art(t, "row-art"),
+      el("div", {},
+        el("div", { className: "title", textContent: t.name || t.id }),
+        el("p", { className: "sub", textContent: subline(t) }),
+        el("div", { className: "bar" }, bar),
+      ),
+      el("span", { className: "plays" }, String(t.plays), el("small", { textContent: "회" })),
     );
-    const li = el("li");
-    li.append(
-      el("span", { className: "rank", textContent: i + 1 }),
-      t.image ? el("img", { className: "art", src: t.image, alt: "", loading: "lazy" }) : el("div", { className: "art" }),
-      info,
-      el("span", { className: "plays", textContent: `${t.plays}회` }),
-    );
-    return li;
+    bar.style.setProperty("--i", k + 1);
+    return el("li", {}, stagger(row, k + 1));
   }));
 }
+
+$("older").addEventListener("click", () => show(current + 1));
+$("newer").addEventListener("click", () => show(current - 1));
+document.addEventListener("keydown", (e) => {
+  if (e.key === "ArrowLeft" && !$("older").disabled) show(current + 1);
+  if (e.key === "ArrowRight" && !$("newer").disabled) show(current - 1);
+});
 
 fetch("top.json", { cache: "no-store" })
   .then((r) => { if (!r.ok) throw new Error(`top.json HTTP ${r.status}`); return r.json(); })
   .then((data) => {
-    if (!data.months.length) { $("note").textContent = "아직 수집된 재생 기록이 없습니다."; return; }
-    const select = $("month");
-    select.append(...data.months.map((m) => el("option", { value: m.month, textContent: monthLabel(m.month) })));
-    const pick = (value) => {
-      const month = data.months.find((m) => m.month === value) || data.months[0];
-      select.value = month.month;
-      render(month);
-    };
-    select.addEventListener("change", () => { location.hash = select.value; pick(select.value); });
-    select.hidden = false;
-    pick(location.hash.slice(1));
-    $("note").textContent = `마지막 재생 기록: ${kst(data.last_play)}`;
+    months = data.months;
+    if (!months.length) { message("아직 수집된 재생 기록이 없어요."); return; }
+    $("chips").replaceChildren(...months.map((m, i) => el("button", {
+      className: "chip",
+      textContent: `${m.month.slice(2, 4)}.${m.month.slice(5)}`,
+      onclick: () => show(i),
+    }, )));
+    [...$("chips").children].forEach((chip, i) => { chip.dataset.month = months[i].month; });
+    const fromHash = months.findIndex((m) => m.month === location.hash.slice(1));
+    show(fromHash === -1 ? 0 : fromHash);
+    const updated = new Date(data.last_play).toLocaleString("ko-KR", { timeZone: "Asia/Seoul", dateStyle: "medium", timeStyle: "short" });
+    $("footer").textContent = `마지막 재생 기록 ${updated}`;
   })
-  .catch((err) => { $("note").textContent = `데이터를 불러오지 못했습니다: ${err.message}`; });
+  .catch((err) => message(`데이터를 불러오지 못했어요 (${err.message})`));
 </script>
 </body>
 </html>
