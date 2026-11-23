@@ -1,5 +1,5 @@
 {
- "last_play": "2026-11-23T05:26:55Z",
+ "last_play": "2026-11-23T10:51:39Z",
  "months": [
   {
    "month": "2026-11",
@@ -7,10 +7,42 @@
     {
      "id": "7JXoLRWkHwObCvM7jpPcjL",
      "plays": 3,
-     "name": "BABY ANGEL",
-     "artists": "NAYEON",
      "album": "NA-sty",
-     "image": "https://i.scdn.co/image/ab67616d00001e020a82f5556a6fe172343d83dc"
+     "artists": "NAYEON",
+     "image": "https://i.scdn.co/image/ab67616d00001e020a82f5556a6fe172343d83dc",
+     "name": "BABY ANGEL"
+    },
+    {
+     "id": "75VHHdiO17QjbS9lDmB2LV",
+     "plays": 2,
+     "name": "Drive Into Your Heart",
+     "artists": "hathaw9y",
+     "album": "Lovers",
+     "image": "https://i.scdn.co/image/ab67616d00001e0264b3cfb7e5f5a672dd15a2a1"
+    },
+    {
+     "id": "3L6OalQDbdCS0Tg1kFccYn",
+     "plays": 2,
+     "name": "Why Don’t You Know",
+     "artists": "CHUNG HA, Nucksal",
+     "album": "Hands on Me",
+     "image": "https://i.scdn.co/image/ab67616d00001e02ce3eb674753352bcaa0ec45b"
+    },
+    {
+     "id": "7C4pZa37R3hTIA4NWzbj9W",
+     "plays": 2,
+     "name": "HERO",
+     "artists": "Vaundy",
+     "album": "裸の勇者",
+     "image": "https://i.scdn.co/image/ab67616d00001e02c769dbc6307a218bbdc02e88"
+    },
+    {
+     "id": "0hHDMvLvoJh8gYbJIi182A",
+     "plays": 2,
+     "name": "Sushi",
+     "artists": "FKA twigs",
+     "album": "EUSEXUA Afterglow",
+     "image": "https://i.scdn.co/image/ab67616d00001e026089c0f46246e83c090eb0ad"
     },
     {
      "id": "30FURVTCpbKyykjSEQzGkH",
@@ -37,52 +69,20 @@
      "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f"
     },
     {
-     "id": "1ZgkElmMxUBm67DSHZOlRc",
+     "id": "4lSpqM6GXznSMMYzJ1nKZa",
      "plays": 1,
-     "name": "Candy Pink",
-     "artists": "Glen Check",
-     "album": "Pulp",
-     "image": "https://i.scdn.co/image/ab67616d00001e029b82c6002662195c3970a8eb"
+     "name": "an untrustworthy promise",
+     "artists": "NELL",
+     "album": "Let It Rain",
+     "image": "https://i.scdn.co/image/ab67616d00001e0283eec60dcc6556844e93efa0"
     },
     {
-     "id": "4o7zvMxb3aqJf4AawjmJtP",
+     "id": "715GOagFCLKiez9PNzeAT8",
      "plays": 1,
-     "name": "Humanimals",
-     "artists": "Animal Divers",
-     "album": "Monsoon",
-     "image": "https://i.scdn.co/image/ab67616d00001e02b7080e9ab49d9069e15116d7"
-    },
-    {
-     "id": "0P4OHmZ7t092na79ElH7F5",
-     "plays": 1,
-     "name": "10:36",
-     "artists": "beabadoobee",
-     "album": "Beatopia",
-     "image": "https://i.scdn.co/image/ab67616d00001e02384d10f967c2b914de7e2713"
-    },
-    {
-     "id": "1OKkG3vxEuBBwLw1gCqdNW",
-     "plays": 1,
-     "name": "Dsco",
-     "artists": "Sweet Trip",
-     "album": "Velocity: Design: Comfort.",
-     "image": "https://i.scdn.co/image/ab67616d00001e022aa34d5906e01231eff70f82"
-    },
-    {
-     "id": "2cSF030ZTJovjx7l31pxub",
-     "plays": 1,
-     "name": "Damn! I've been living like this",
-     "artists": "JAURIM",
-     "album": "Lovers",
-     "image": "https://i.scdn.co/image/ab67616d00001e02926942e7b359da99a49750d8"
-    },
-    {
-     "id": "1jlG3KJ3gdYmhfuySFfpO1",
-     "plays": 1,
-     "name": "I'm with You",
-     "artists": "Avril Lavigne",
-     "album": "Let Go",
-     "image": "https://i.scdn.co/image/ab67616d00001e02f7ec724fbf97a30869d06240"
+     "name": "Suicide Boy",
+     "artists": "초록불꽃소년단",
+     "album": "GREENBRIDGE",
+     "image": "https://i.scdn.co/image/ab67616d00001e024b87f0f171a3dd2f62682267"
     }
    ]
   }
