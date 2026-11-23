@@ -1,0 +1,6 @@
+__pycache__/
+.env
+# Raw Spotify data exports stay local; only the extracted plays are committed.
+Spotify*/
+my_spotify_data*
+Streaming_History*.json

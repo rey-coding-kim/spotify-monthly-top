@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>월별 Top 10</title>
+<style>
+  :root { --bg: #f7f7f7; --fg: #111; --muted: #666; --card: #fff; --line: #e4e4e4; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #121212; --fg: #eee; --muted: #9a9a9a; --card: #1c1c1c; --line: #2a2a2a; }
+  }
+  body { margin: 0; background: var(--bg); color: var(--fg); font-family: system-ui, -apple-system, "Noto Sans KR", sans-serif; }
+  main { max-width: 560px; margin: 0 auto; padding: 24px 16px 48px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+  h1 { font-size: 20px; margin: 0; }
+  select { font: inherit; padding: 6px 10px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); color: var(--fg); }
+  ol { list-style: none; padding: 0; margin: 0; }
+  li { display: grid; grid-template-columns: 24px 56px 1fr auto; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .rank { font-weight: 700; color: var(--muted); text-align: right; font-variant-numeric: tabular-nums; }
+  .art { width: 56px; height: 56px; border-radius: 6px; object-fit: cover; background: var(--line); display: block; }
+  .info { min-width: 0; }
+  .title, .sub { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .title { font-weight: 600; color: inherit; text-decoration: none; display: block; }
+  .title:hover { text-decoration: underline; }
+  .sub, .plays, .note { color: var(--muted); font-size: 13px; }
+  .plays { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .note { margin-top: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>월별 Top 10</h1>
+    <select id="month" aria-label="월 선택" hidden></select>
+  </header>
+  <ol id="list"></ol>
+  <p class="note" id="note"></p>
+</main>
+<script>
+const $ = (id) => document.getElementById(id);
+const el = (tag, props = {}) => Object.assign(document.createElement(tag), props);
+const monthLabel = (m) => `${m.slice(0, 4)}년 ${Number(m.slice(5))}월`;
+const kst = (ts) => new Date(ts).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" });
+
+function render(month) {
+  $("list").replaceChildren(...month.tracks.map((t, i) => {
+    const info = el("div", { className: "info" });
+    info.append(
+      el("a", { className: "title", textContent: t.name || t.id, href: `https://open.spotify.com/track/${t.id}`, target: "_blank", rel: "noopener" }),
+      el("div", { className: "sub", textContent: [t.artists, t.album].filter(Boolean).join(" · ") }),
+    );
+    const li = el("li");
+    li.append(
+      el("span", { className: "rank", textContent: i + 1 }),
+      t.image ? el("img", { className: "art", src: t.image, alt: "", loading: "lazy" }) : el("div", { className: "art" }),
+      info,
+      el("span", { className: "plays", textContent: `${t.plays}회` }),
+    );
+    return li;
+  }));
+}
+
+fetch("top.json", { cache: "no-store" })
+  .then((r) => { if (!r.ok) throw new Error(`top.json HTTP ${r.status}`); return r.json(); })
+  .then((data) => {
+    if (!data.months.length) { $("note").textContent = "아직 수집된 재생 기록이 없습니다."; return; }
+    const select = $("month");
+    select.append(...data.months.map((m) => el("option", { value: m.month, textContent: monthLabel(m.month) })));
+    const pick = (value) => {
+      const month = data.months.find((m) => m.month === value) || data.months[0];
+      select.value = month.month;
+      render(month);
+    };
+    select.addEventListener("change", () => { location.hash = select.value; pick(select.value); });
+    select.hidden = false;
+    pick(location.hash.slice(1));
+    $("note").textContent = `마지막 재생 기록: ${kst(data.last_play)}`;
+  })
+  .catch((err) => { $("note").textContent = `데이터를 불러오지 못했습니다: ${err.message}`; });
+</script>
+</body>
+</html>
