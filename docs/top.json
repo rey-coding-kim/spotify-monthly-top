@@ -1,5 +1,5 @@
 {
- "last_play": "2026-11-23T22:48:49Z",
+ "last_play": "2026-11-24T23:24:25Z",
  "months": [
   {
    "month": "2026-11",
@@ -47,42 +47,42 @@
     {
      "id": "30FURVTCpbKyykjSEQzGkH",
      "plays": 2,
-     "name": "Back To Black",
-     "artists": "Amy Winehouse",
      "album": "Back To Black",
-     "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f"
+     "artists": "Amy Winehouse",
+     "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f",
+     "name": "Back To Black"
     },
     {
      "id": "1L5tZi0izXsi5Kk5OJf4W0",
      "plays": 2,
-     "name": "Rehab",
-     "artists": "Amy Winehouse",
      "album": "Back To Black",
-     "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f"
+     "artists": "Amy Winehouse",
+     "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f",
+     "name": "Rehab"
     },
     {
      "id": "6yLX8QnxlnEqZfs3YKCfjF",
      "plays": 2,
-     "name": "Tears Dry On Their Own",
-     "artists": "Amy Winehouse",
      "album": "Back To Black",
-     "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f"
+     "artists": "Amy Winehouse",
+     "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f",
+     "name": "Tears Dry On Their Own"
     },
     {
-     "id": "0MyY4WcN7DIfbSmp5yej5z",
+     "id": "5NDmqb0hqKfpsaBH0RpLU0",
      "plays": 1,
-     "name": "Da Funk",
-     "artists": "Daft Punk",
-     "album": "Homework",
-     "image": "https://i.scdn.co/image/ab67616d00001e028ac778cc7d88779f74d33311"
+     "name": "Spectral Broadening",
+     "artists": "Infinite Field",
+     "album": "Spectral Broadening",
+     "image": "https://i.scdn.co/image/ab67616d00001e0284cf3ab053150d4af211690a"
     },
     {
-     "id": "0ybXC75oquqEjMzZ6gJnIr",
+     "id": "1bHpK6c0WMaesiytzwwhgk",
      "plays": 1,
-     "name": "Boysick",
-     "artists": "Sultan of the Disco",
-     "album": "The Art of Suffering",
-     "image": "https://i.scdn.co/image/ab67616d00001e02ca5cc3eaa86ac823069a3d66"
+     "name": "Sdraiarsi",
+     "artists": "Fleurs de Son",
+     "album": "Sdraiarsi",
+     "image": "https://i.scdn.co/image/ab67616d00001e025d11e09e96fddca030087fc5"
     }
    ]
   }
