@@ -1,16 +1,24 @@
 {
- "last_play": "2026-11-24T23:24:25Z",
+ "last_play": "2026-11-25T04:09:32Z",
  "months": [
   {
    "month": "2026-11",
    "tracks": [
     {
+     "id": "3O9fksBS42NeGNc8kz16fn",
+     "plays": 9,
+     "name": "Love is Dangerous",
+     "artists": "TOUCHED",
+     "album": "Purple",
+     "image": "https://i.scdn.co/image/ab67616d00001e024484057587cd41df4b033cf7"
+    },
+    {
      "id": "75VHHdiO17QjbS9lDmB2LV",
      "plays": 3,
-     "name": "Drive Into Your Heart",
-     "artists": "hathaw9y",
      "album": "Lovers",
-     "image": "https://i.scdn.co/image/ab67616d00001e0264b3cfb7e5f5a672dd15a2a1"
+     "artists": "hathaw9y",
+     "image": "https://i.scdn.co/image/ab67616d00001e0264b3cfb7e5f5a672dd15a2a1",
+     "name": "Drive Into Your Heart"
     },
     {
      "id": "7JXoLRWkHwObCvM7jpPcjL",
@@ -21,28 +29,36 @@
      "name": "BABY ANGEL"
     },
     {
+     "id": "6Uj1ctrBOjOas8xZXGqKk4",
+     "plays": 2,
+     "name": "Woman",
+     "artists": "Doja Cat",
+     "album": "Planet Her",
+     "image": "https://i.scdn.co/image/ab67616d00001e0214b7b2a920a41166d53ddd49"
+    },
+    {
      "id": "3L6OalQDbdCS0Tg1kFccYn",
      "plays": 2,
-     "name": "Why Don’t You Know",
-     "artists": "CHUNG HA, Nucksal",
      "album": "Hands on Me",
-     "image": "https://i.scdn.co/image/ab67616d00001e02ce3eb674753352bcaa0ec45b"
+     "artists": "CHUNG HA, Nucksal",
+     "image": "https://i.scdn.co/image/ab67616d00001e02ce3eb674753352bcaa0ec45b",
+     "name": "Why Don’t You Know"
     },
     {
      "id": "7C4pZa37R3hTIA4NWzbj9W",
      "plays": 2,
-     "name": "HERO",
-     "artists": "Vaundy",
      "album": "裸の勇者",
-     "image": "https://i.scdn.co/image/ab67616d00001e02c769dbc6307a218bbdc02e88"
+     "artists": "Vaundy",
+     "image": "https://i.scdn.co/image/ab67616d00001e02c769dbc6307a218bbdc02e88",
+     "name": "HERO"
     },
     {
      "id": "0hHDMvLvoJh8gYbJIi182A",
      "plays": 2,
-     "name": "Sushi",
-     "artists": "FKA twigs",
      "album": "EUSEXUA Afterglow",
-     "image": "https://i.scdn.co/image/ab67616d00001e026089c0f46246e83c090eb0ad"
+     "artists": "FKA twigs",
+     "image": "https://i.scdn.co/image/ab67616d00001e026089c0f46246e83c090eb0ad",
+     "name": "Sushi"
     },
     {
      "id": "30FURVTCpbKyykjSEQzGkH",
@@ -67,22 +83,6 @@
      "artists": "Amy Winehouse",
      "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f",
      "name": "Tears Dry On Their Own"
-    },
-    {
-     "id": "5NDmqb0hqKfpsaBH0RpLU0",
-     "plays": 1,
-     "name": "Spectral Broadening",
-     "artists": "Infinite Field",
-     "album": "Spectral Broadening",
-     "image": "https://i.scdn.co/image/ab67616d00001e0284cf3ab053150d4af211690a"
-    },
-    {
-     "id": "1bHpK6c0WMaesiytzwwhgk",
-     "plays": 1,
-     "name": "Sdraiarsi",
-     "artists": "Fleurs de Son",
-     "album": "Sdraiarsi",
-     "image": "https://i.scdn.co/image/ab67616d00001e025d11e09e96fddca030087fc5"
     }
    ]
   }
