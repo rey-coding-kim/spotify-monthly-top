@@ -1,5 +1,5 @@
 {
- "last_play": "2026-11-26T07:35:22Z",
+ "last_play": "2026-11-26T11:14:21Z",
  "months": [
   {
    "month": "2026-11",
@@ -11,6 +11,14 @@
      "artists": "TOUCHED",
      "album": "Purple",
      "image": "https://i.scdn.co/image/ab67616d00001e024484057587cd41df4b033cf7"
+    },
+    {
+     "id": "1OKkG3vxEuBBwLw1gCqdNW",
+     "plays": 6,
+     "name": "Dsco",
+     "artists": "Sweet Trip",
+     "album": "Velocity: Design: Comfort.",
+     "image": "https://i.scdn.co/image/ab67616d00001e022aa34d5906e01231eff70f82"
     },
     {
      "id": "75VHHdiO17QjbS9lDmB2LV",
@@ -75,14 +83,6 @@
      "artists": "Vaundy",
      "image": "https://i.scdn.co/image/ab67616d00001e02c769dbc6307a218bbdc02e88",
      "name": "HERO"
-    },
-    {
-     "id": "0hHDMvLvoJh8gYbJIi182A",
-     "plays": 2,
-     "album": "EUSEXUA Afterglow",
-     "artists": "FKA twigs",
-     "image": "https://i.scdn.co/image/ab67616d00001e026089c0f46246e83c090eb0ad",
-     "name": "Sushi"
     }
    ]
   }
