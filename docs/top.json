@@ -1,12 +1,12 @@
 {
- "last_play": "2026-11-26T00:25:46Z",
+ "last_play": "2026-11-26T07:35:22Z",
  "months": [
   {
    "month": "2026-11",
    "tracks": [
     {
      "id": "3O9fksBS42NeGNc8kz16fn",
-     "plays": 9,
+     "plays": 10,
      "name": "Love is Dangerous",
      "artists": "TOUCHED",
      "album": "Purple",
@@ -27,6 +27,22 @@
      "artists": "NAYEON",
      "image": "https://i.scdn.co/image/ab67616d00001e020a82f5556a6fe172343d83dc",
      "name": "BABY ANGEL"
+    },
+    {
+     "id": "6qL7sccU4FQS6zUgKCzNu6",
+     "plays": 2,
+     "name": "POOL",
+     "artists": "tricot",
+     "album": "T H E",
+     "image": "https://i.scdn.co/image/ab67616d00001e02061e6592466a9234af85ef0b"
+    },
+    {
+     "id": "75zIfJpcYFYHSBMVlmdiYc",
+     "plays": 2,
+     "name": "Slow Dancing in a Burning Room",
+     "artists": "John Mayer",
+     "album": "Continuum",
+     "image": "https://i.scdn.co/image/ab67616d00001e02fa8e8cc9d6d0862b7033dbaa"
     },
     {
      "id": "2cSF030ZTJovjx7l31pxub",
@@ -67,22 +83,6 @@
      "artists": "FKA twigs",
      "image": "https://i.scdn.co/image/ab67616d00001e026089c0f46246e83c090eb0ad",
      "name": "Sushi"
-    },
-    {
-     "id": "30FURVTCpbKyykjSEQzGkH",
-     "plays": 2,
-     "album": "Back To Black",
-     "artists": "Amy Winehouse",
-     "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f",
-     "name": "Back To Black"
-    },
-    {
-     "id": "1L5tZi0izXsi5Kk5OJf4W0",
-     "plays": 2,
-     "album": "Back To Black",
-     "artists": "Amy Winehouse",
-     "image": "https://i.scdn.co/image/ab67616d00001e02dc65d5638a3de4a0bdf3c05f",
-     "name": "Rehab"
     }
    ]
   }
