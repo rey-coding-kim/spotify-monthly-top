@@ -1,5 +1,5 @@
 {
- "last_play": "2026-11-26T11:14:21Z",
+ "last_play": "2026-11-27T02:12:04Z",
  "months": [
   {
    "month": "2026-11",
@@ -37,6 +37,22 @@
      "name": "BABY ANGEL"
     },
     {
+     "id": "1WsNJUSlzdWlmVple6k3u5",
+     "plays": 2,
+     "name": "閃光少女",
+     "artists": "Tokyo Incidents",
+     "album": "閃光少女",
+     "image": "https://i.scdn.co/image/ab67616d00001e0253b1f98207e7c416305cf8fe"
+    },
+    {
+     "id": "6atVS7UZBxoyJkkteM62u5",
+     "plays": 2,
+     "name": "Clarity",
+     "artists": "John Mayer",
+     "album": "Heavier Things",
+     "image": "https://i.scdn.co/image/ab67616d00001e025ce3a30ee6d86659603a9536"
+    },
+    {
      "id": "6qL7sccU4FQS6zUgKCzNu6",
      "plays": 2,
      "name": "POOL",
@@ -67,22 +83,6 @@
      "artists": "Doja Cat",
      "album": "Planet Her",
      "image": "https://i.scdn.co/image/ab67616d00001e0214b7b2a920a41166d53ddd49"
-    },
-    {
-     "id": "3L6OalQDbdCS0Tg1kFccYn",
-     "plays": 2,
-     "album": "Hands on Me",
-     "artists": "CHUNG HA, Nucksal",
-     "image": "https://i.scdn.co/image/ab67616d00001e02ce3eb674753352bcaa0ec45b",
-     "name": "Why Don’t You Know"
-    },
-    {
-     "id": "7C4pZa37R3hTIA4NWzbj9W",
-     "plays": 2,
-     "album": "裸の勇者",
-     "artists": "Vaundy",
-     "image": "https://i.scdn.co/image/ab67616d00001e02c769dbc6307a218bbdc02e88",
-     "name": "HERO"
     }
    ]
   }
